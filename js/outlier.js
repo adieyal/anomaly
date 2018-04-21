@@ -4,7 +4,6 @@ var fmt = d3.format(".2f")
 var create_preview = function(data) {
     var preview = data.slice(1, 5);
 
-    d3.select("#filesize").text(file.size + " bytes uploaded");
     d3.select("#preview-table table").remove()
 
     var table = d3.select("#preview-table").append("table")
