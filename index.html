@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Find data outliers</title>
+  <meta name="description" content="Basic tool to find outliers in a dataset">
+  <meta name="author" content="Adi Eyal">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/c3.min.css">
+  <link rel="stylesheet" href="css/outlier.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row" style="margin-top: 5%">
+        <h1>Outlier detector</h1>
+    </div>
+    <div class="row">
+      <div class="eleven columns">
+        <h4>Introduction</h4>
+        <p>This is a simple tool that lets you upload an arbitrary dataset and finds any outliers. This can be useful as a starting point for finding data which is out of the ordinary and might be worthy of further investigationl.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="eleven columns">
+        <h4>Upload your data</h4>
+        <p>Your file should be comma separated. Each row is an observation and each column is a variable. The first column of each row should contain a label for that observation. The tool finds observations that are outliers. Here are two examples:
+            <ul>
+                <li><a href="samples/wages.csv">Municipal wage costs as a percentage of operating revenue</a></li>
+                <li><a href="samples/fines.csv">Municipal fine revenue as a percentage of operating revenue</a></li>
+            </ul>
+        </p>
+        <p>
+            <input type="file" id="file" accept=".csv"/>
+            <p id="filesize"></p>
+        </p>
+      </div>
+    </div>
+    <div class="row" id="preview-table">
+        <h4>Preview of data</h4>
+        <table class="u-full-width">
+        </table>
+    </div>
+    <div class="row" id="scatter-plot">
+        <h4></h4>
+
+        <p>The axes of this plot are not meaningful. It is only important to note if a particular dot is an outlier.</p>
+        <h4 id="label">Hover on a dot for more information.</h4>
+        <svg id="circle_canvas" width="1000" height="100"></svg>
+        
+        <h4>Scatterplot</h4>
+        <svg id="pca_canvas" width="1000" height="500"></svg>
+    </div>
+    <div class="row">
+      <div class="eleven columns">
+        <h4>Explanation</h4>
+        <p>This tool uses <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Principal Component Analysis (PCA)</a> to reduce the dimensionality of the data. In other words, it reduces the number of variables in an observation to two. It does this while attempting to retain the variance in the data. Reducing the number of variables allows us to plot each observation in two dimensions and makes it easier to identify outliers.</p>
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+      <div class="ten columns">&nbsp;</div>
+      <div class="two columns">Contact me: adi@openup.org.za</div>
+    </div>
+  </div>
+
+  <script src="js/d3.v5.min.js"></script>
+  <script src="js/ml.min.js"></script>
+  <script src="js/outlier.js"></script>
+</body>
+</html>

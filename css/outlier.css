@@ -1,0 +1,14 @@
+#preview-table, #scatter-plot {
+    display: none;
+}
+
+#scatter-plot #label {
+}
+
+svg {
+    border-bottom: solid thin black;
+}
+
+.highlight {
+    fill: red;
+}
