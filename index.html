@@ -21,7 +21,6 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/c3.min.css">
   <link rel="stylesheet" href="css/outlier.css">
 
   <!-- Favicon
@@ -67,11 +66,13 @@
         <h4></h4>
 
         <p>The axes of this plot are not meaningful. It is only important to note if a particular dot is an outlier. Hover over the dots for more detail.</p>
-        <h4 id="label">Hover on a dot for more information.</h4>
-        <svg id="circle_canvas" width="1000" height="100"></svg>
         
         <h4>Scatterplot</h4>
+        <h5 id="label">Click on a dot for more information.</h5>
         <svg id="pca_canvas" width="1000" height="500"></svg>
+
+        <h5 id="year_label"></h5>
+        <svg id="circle_canvas" width="1000" height="100"></svg>
     </div>
     <div class="row">
       <div class="eleven columns">
