@@ -1,5 +1,5 @@
 d3.identity = function(d) { return d; }
-var fmt = d3.format(".2f")
+var fmt = d3.format(",.2f")
 
 var create_preview = function(data) {
     var preview = data.slice(1, 5);
