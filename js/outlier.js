@@ -83,7 +83,7 @@ var create_variable_graph = function(svg, datum) {
         })
 }
 
-var create_graph = function(original, data) {
+var create_scatter = function(original, data) {
     var canvas_width = 1000;
     var canvas_height = 500;
     var padding = 50;
@@ -108,8 +108,8 @@ var create_graph = function(original, data) {
 
     var scale_h = d3.scaleLinear()
         .domain([
-            d3.min(data, height) * 1.2,
-            d3.max(data, height) * 1.2,
+            d3.min(data, height) * 1,
+            d3.max(data, height) * 1,
         ])
         .range([padding, canvas_height - padding])
 
@@ -123,13 +123,17 @@ var create_graph = function(original, data) {
             .on("mouseover", function(d, idx) {
                 var label = d3.select("#scatter-plot #label")
                 var datum = original[idx + 1];
+                label.text(datum[0])
+            })
+            .on("click", function(d, idx) {
+                svg_pca.selectAll("circle").classed("highlight", false);
+
+                var label = d3.select("#scatter-plot #year_label")
+                var datum = original[idx + 1];
                 
                 label.text(datum[0])
                 create_variable_graph(svg_circles, [headers, datum]);
                 d3.select(this).classed("highlight", true);
-            })
-            .on("mouseout", function() {
-                d3.select(this).classed("highlight", false);
             })
 }
 
@@ -151,7 +155,7 @@ d3.select("#file").on("change", function(ev) {
 
         create_preview(data);
         var predicted_with_labels = process_pca(data);
-        create_graph(data, predicted_with_labels);
+        create_scatter(data, predicted_with_labels);
 
     }
     reader.readAsText(file);
