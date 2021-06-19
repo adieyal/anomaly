@@ -3,4 +3,4 @@ A simple tool that detects outliers in data using principal component analysis. 
 
 This is useful in order to sanity check datasets and to find any anomalies that might be worth investigating.
 
-Find it here: adieyal.github.io/anomaly
+Find it here: [adieyal.github.io/anomaly](adieyal.github.io/anomaly)
